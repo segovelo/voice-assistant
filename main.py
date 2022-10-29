@@ -39,7 +39,7 @@ class Assistant:
                     text = self.recognizer.recognize_google(audio)
                     text = text.lower()
 
-                    if "hey orion" in text:
+                    if "hey jake" in text:
                         self.label.config(fg="red")
                         audio = self.recognizer.listen(mic)
                         text = text.lower()
@@ -47,7 +47,7 @@ class Assistant:
                             self.speaker.say("Bye Bye")
                             self.speaker.runAndWait()
                             self.speaker.stop()
-                            self.speaker.destroy()
+                            self.root.destroy()
                             sys.exit()
                         else:
                             if text is not None:
