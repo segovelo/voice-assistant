@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=F62wb_jfUUw
+pip3 install speechrecognition
+pip3 install neuralintents
+pip3 install pyttsx3
+For anyone doesn’t want to send their audio to Google, you can use the python module vosk for offline speech recognition
+
+https://www.youtube.com/watch?v=DYYxLSrJdW8&list=RDCMUC8wZnXYK_CGKlBcZp-GxYPA&index=4
