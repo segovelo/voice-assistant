@@ -1,9 +1,10 @@
+from ast import And
 import sys
 import threading
 import tkinter as tk
 import speech_recognition
 import pyttsx3 as tts
-
+from datetime import datetime
 from neuralintents import GenericAssistant
 
 
@@ -13,12 +14,15 @@ class Assistant:
         self.speaker = tts.init()
         self.speaker.setProperty("rate", 150)
 
-        self.assistant = GenericAssistant("intents.json", intent_methods={"file": self.create_file})
+        self.assistant = GenericAssistant("intents.json", intent_methods={
+                                          "file": self.create_file})
         self.assistant.train_model()
 
         self.root = tk.Tk()
         self.label = tk.Label(text="🤖", font=("Arial", 120, "bold"))
+        self.stopButton = tk.Button(justify="left", height=2, width=20, text ="Stop", command = exit)
         self.label.pack()
+        self.stopButton.pack()
 
         threading.Thread(target=self.run_assistant).start()
 
@@ -39,12 +43,13 @@ class Assistant:
                     text = self.recognizer.recognize_google(audio)
                     text = text.lower()
 
-                    if "hey jake" in text:
+                    if "wake up" in text:
                         self.label.config(fg="red")
                         audio = self.recognizer.listen(mic)
+                        text = self.recognizer.recognize_google(audio)
                         text = text.lower()
                         if text == "stop":
-                            self.speaker.say("Bye Bye")
+                            self.speaker.say("bye")
                             self.speaker.runAndWait()
                             self.speaker.stop()
                             self.root.destroy()
@@ -61,5 +66,3 @@ class Assistant:
                 continue
 
 Assistant()
-
-
