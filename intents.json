@@ -3,31 +3,31 @@
         {
             "tag": "greeting",
             "patterns": [
-                "Hi",
-                "Hey",
-                "What's up?",
-                "Hey how are you doing?"
+                "hi",
+                "hello",
+                "hey",
+                "what's up?",
+                "hey how are you doing?"
             ],
-            "responses": [
-                "Hey,hello",
-                "What can I help with?"
-            ]
+            "responses": []
         },
         {
             "tag": "name",
             "patterns": [
-                "What is your name?",
-                "What do you call yourself?"
+                "what is your name?",
+                "what do you call yourself?"
             ],
             "responses": [
-                "My name is Orion"
+                "My name is Phillip"
             ]
         },
         {
             "tag": "file",
             "patterns": [
-                "Create a file",
-                "Create new file"
+                "create a file",
+                "create new file",
+                "create file",
+                "create a new file"
             ],
             "responses": []
         }
